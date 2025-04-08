@@ -1,5 +1,6 @@
 import { useState } from "react";
 import languages from "../data/languages"
+import Card from "../components/Card"
 
 
 function Main() {
@@ -10,7 +11,10 @@ function Main() {
         <>
             <div className="container d-flex justify-content-evenly bg-secondary-subtle mt-5">
                 {languages.map(curElem => (<button className="btn btn-primary btn-sm" key={curElem.id} onClick={() => setClick(curElem)}> {curElem.title}</button>))}
+
             </div >
+            <Card click={click} />
+
         </>
     )
 }
