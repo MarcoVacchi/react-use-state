@@ -6,11 +6,15 @@ import Card from "../components/Card"
 function Main() {
 
     const [click, setClick] = useState(null)
+    const [activeButton, setActiveButton] = useState(null);
 
     return (
         <>
             <div className="container d-flex justify-content-evenly bg-secondary-subtle mt-5">
-                {languages.map(curElem => (<button className="btn btn-primary btn-sm" key={curElem.id} onClick={() => setClick(curElem)}> {curElem.title}</button>))}
+                {languages.map(curElem => (<button className={`btn btn-primary btn-sm ${activeButton === curElem.id ? "btn-warning" : ""}`} key={curElem.id} onClick={() => {
+                    setClick(curElem);
+                    setActiveButton(curElem.id)
+                }}> {curElem.title}</button>))}
 
             </div >
             <Card click={click} />
